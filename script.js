@@ -1,3 +1,10 @@
+const gameContainer = document.getElementById("game-container");
+
+let score = 0; // Contador de respuestas correctas
+const scoreDisplay = document.createElement("h2");
+scoreDisplay.textContent = `Aciertos: ${score} de 44`;
+document.body.insertBefore(scoreDisplay, gameContainer);
+
 const countries = [
     { name: "Venezuela", correctCapital: "Caracas", wrongCapital: "Bogotá", flag: "flags/venezuela.png" },
     { name: "Argentina", correctCapital: "Buenos Aires", wrongCapital: "Lima", flag: "flags/argentina.png" },
@@ -46,8 +53,11 @@ const countries = [
     { name: "Hungría", correctCapital: "Budapest", wrongCapital: "Viena", flag: "flags/hungria.png" },
   ];
   
-  
-  const gameContainer = document.getElementById("game-container");
+
+
+
+
+
   
   countries.forEach((country) => {
     const card = document.createElement("div");
@@ -65,27 +75,45 @@ const countries = [
     card.appendChild(countryName);
   
     // Botones de opciones
-    const correctButton = document.createElement("button");
-    correctButton.textContent = country.correctCapital;
-    correctButton.addEventListener("click", () => handleAnswer(true, card));
-    card.appendChild(correctButton);
-  
-    const wrongButton = document.createElement("button");
-    wrongButton.textContent = country.wrongCapital;
-    wrongButton.addEventListener("click", () => handleAnswer(false, card));
-    card.appendChild(wrongButton);
+    // Opciones de capital
+const options = [
+  { text: country.correctCapital, isCorrect: true },
+  { text: country.wrongCapital, isCorrect: false },
+];
+
+// Mezclar opciones de forma aleatoria
+options.sort(() => Math.random() - 0.5);
+
+options.forEach((option) => {
+  const button = document.createElement("button");
+  button.textContent = option.text;
+  button.addEventListener("click", () => handleAnswer(option.isCorrect, card));
+  card.appendChild(button);
+});
+
+
   
     gameContainer.appendChild(card);
   });
   
   function handleAnswer(isCorrect, card) {
+    if (card.querySelector("p")) return; // Evitar múltiples mensajes
+  
     const message = document.createElement("p");
     message.textContent = isCorrect ? "¡SI, ES CORRECTO!" : "No";
     message.style.color = isCorrect ? "green" : "red";
     card.appendChild(message);
   
-    // Deshabilitar botones tras responder
+    if (isCorrect) {
+      score++;
+      scoreDisplay.textContent = `Aciertos: ${score}`;
+    }
+  
     const buttons = card.querySelectorAll("button");
     buttons.forEach((button) => (button.disabled = true));
   }
+  
+  
+   
+  
   
