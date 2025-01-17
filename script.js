@@ -1,16 +1,28 @@
 const gameContainer = document.getElementById("game-container");
 
 let score = 0; // Contador de respuestas correctas
-const scoreDisplay = document.createElement("h2");
-scoreDisplay.textContent = `Aciertos: ${score} de 44`;
-document.body.insertBefore(scoreDisplay, gameContainer);
+  const scoreDisplay = document.createElement("h2");
+  scoreDisplay.textContent = `Aciertos: ${score} de 50`;
+  document.body.insertBefore(scoreDisplay, gameContainer);
+
 
 const countries = [
     { name: "Venezuela", correctCapital: "Caracas", wrongCapital: "Bogotá", flag: "flags/venezuela.png" },
+
+    { name: "Ucrania", correctCapital: "Kiev", wrongCapital: "Minsk", flag: "flags/ucrania.png" },
+    { name: "Bélgica", correctCapital: "Bruselas", wrongCapital: "Ámsterdam", flag: "flags/belgica.png" },
+    { name: "Países Bajos", correctCapital: "Ámsterdam", wrongCapital: "Bruselas", flag: "flags/paises_bajos.png" },
+
+
     { name: "Argentina", correctCapital: "Buenos Aires", wrongCapital: "Lima", flag: "flags/argentina.png" },
     { name: "Francia", correctCapital: "París", wrongCapital: "Roma", flag: "flags/francia.png" },
     { name: "Brasil", correctCapital: "Brasilia", wrongCapital: "Santiago", flag: "flags/brasil.png" },
     { name: "Chile", correctCapital: "Santiago", wrongCapital: "Quito", flag: "flags/chile.png" },
+
+    { name: "Arabia Saudita", correctCapital: "Riad", wrongCapital: "Jeddah", flag: "flags/arabia_saudita.png" },
+    { name: "Irán", correctCapital: "Teherán", wrongCapital: "Bagdad", flag: "flags/iran.png" },
+
+
     { name: "Colombia", correctCapital: "Bogotá", wrongCapital: "Lima", flag: "flags/colombia.png" },
     { name: "Ecuador", correctCapital: "Quito", wrongCapital: "Caracas", flag: "flags/ecuador.png" },
     { name: "México", correctCapital: "Ciudad de México", wrongCapital: "Guatemala", flag: "flags/mexico.png" },
@@ -53,11 +65,6 @@ const countries = [
     { name: "Hungría", correctCapital: "Budapest", wrongCapital: "Viena", flag: "flags/hungria.png" },
   ];
   
-
-
-
-
-
   
   countries.forEach((country) => {
     const card = document.createElement("div");
@@ -91,8 +98,6 @@ options.forEach((option) => {
   card.appendChild(button);
 });
 
-
-  
     gameContainer.appendChild(card);
   });
   
@@ -106,7 +111,7 @@ options.forEach((option) => {
   
     if (isCorrect) {
       score++;
-      scoreDisplay.textContent = `Aciertos: ${score}`;
+      scoreDisplay.textContent = `Aciertos: ${score} de 50`;
     }
   
     const buttons = card.querySelectorAll("button");
