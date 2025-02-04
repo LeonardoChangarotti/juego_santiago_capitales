@@ -121,7 +121,3 @@ options.forEach((option) => {
     buttons.forEach((button) => (button.disabled = true));
   }
   
-  
-   
-  
-  
