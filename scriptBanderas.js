@@ -69,6 +69,8 @@ let score = 0; // Contador de respuestas correctas
     { correctCountry: "Nueva Zelanda", wrongCountry: "Australia", flag: "flags/nueva_zelanda.png" }
   ];
   
+// Mezclar el array de países de forma aleatoria
+countries.sort(() => Math.random() - 0.5);
 
     
   

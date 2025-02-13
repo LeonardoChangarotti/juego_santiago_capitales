@@ -69,6 +69,9 @@ let score = 0; // Contador de respuestas correctas
     { name: "Nueva Zelanda", correctCapital: "Wellington", wrongCapital: "Auckland", flag: "flags/nueva_zelanda.png" }
 ];
   
+// Mezclar el array de países de forma aleatoria
+countries.sort(() => Math.random() - 0.5);
+
   countries.forEach((country) => {
     const card = document.createElement("div");
     card.classList.add("card");
