@@ -117,7 +117,7 @@ options.forEach((option) => {
   
     if (isCorrect) {
       score++;
-      scoreDisplay.textContent = `Aciertos: ${score} de 11`;
+      scoreDisplay.textContent = `Aciertos: ${score} de 60`;
     }
   
     const buttons = card.querySelectorAll("button");

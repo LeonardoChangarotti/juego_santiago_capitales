@@ -63,5 +63,7 @@ body {
     left: 50%;         /* Centrado horizontalmente */
     transform: translateX(-50%); /* Ajuste para que el elemento esté perfectamente centrado */
     margin: 0;         /* Elimina márgenes si es necesario */
+    background-color: #ccc;
+    
   }
   
