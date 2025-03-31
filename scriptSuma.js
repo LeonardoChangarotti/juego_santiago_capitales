@@ -4,8 +4,8 @@ const gameContainer = document.getElementById("game-container"); // Contenedor p
 // Función para generar una nueva pregunta de suma
 function generar_preguntaSuma() {
   // Generar dos números aleatorios del 1 al 10
-  const num1 = Math.floor(Math.random() * 10) + 1;
-  const num2 = Math.floor(Math.random() * 10) + 1;
+  const num1 = Math.floor(Math.random() * 100) + 1;
+  const num2 = Math.floor(Math.random() * 100) + 1;
   const correctAnswer = num1 + num2; // Calcular la respuesta correcta
   
   // Crear la tarjeta de la pregunta
