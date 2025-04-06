@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tablas de Multiplicar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      margin: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .tabla {
+      background: #fff;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .tabla h2 {
+      margin-top: 0;
+      text-align: center;
+      color: #0066cc;
+    }
+
+    .fila {
+      display: flex;
+      justify-content: space-between;
+      margin: 5px 0;
+      padding: 5px 0;
+      border-bottom: 1px dashed #ddd;
+    }
+
+    .fila:last-child {
+      border-bottom: none;
+    }
+
+    .select {
+      font-size: 16px;
+      padding: 5px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      background: #e6f7ff;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Tablas de Multiplicar (1 al 10)</h1>
+
+  <div id="contenedor-tablas"></div>
+
+  <script>
+    const contenedor = document.getElementById('contenedor-tablas');
+
+    for (let i = 1; i <= 10; i++) {
+      const tabla = document.createElement('div');
+      tabla.className = 'tabla';
+      tabla.innerHTML = `<h2>Tabla del ${i}</h2>`;
+
+      for (let j = 1; j <= 10; j++) {
+        const resultado = i * j;
+        const fila = document.createElement('div');
+        fila.className = 'fila';
+
+        const select = document.createElement('select');
+        select.className = 'select';
+
+        const optionPlaceholder = document.createElement('option');
+        optionPlaceholder.textContent = 'Selecciona...';
+        optionPlaceholder.disabled = true;
+        optionPlaceholder.selected = true;
+        select.appendChild(optionPlaceholder);
+
+        const opcionCorrecta = document.createElement('option');
+        opcionCorrecta.value = resultado;
+        opcionCorrecta.textContent = resultado;
+        select.appendChild(opcionCorrecta);
+
+        fila.innerHTML = `<span>${i} x ${j} = </span>`;
+        fila.appendChild(select);
+        tabla.appendChild(fila);
+      }
+
+      contenedor.appendChild(tabla);
+    }
+  </script>
+<button class="botonvolver" onclick="location.href='index.html'">volver</button>
+</body>
+</html>
+
